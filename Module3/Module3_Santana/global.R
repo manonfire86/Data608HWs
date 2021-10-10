@@ -1,0 +1,5 @@
+library(shiny)
+library(plotly)
+library(dplyr)
+cdc_mort_df = read.csv('https://raw.githubusercontent.com/charleyferrari/CUNY_DATA608/master/lecture3/data/cleaned-cdc-mortality-1999-2010-2.csv', header= TRUE)
+filt_cdc_mort_df = cdc_mort_df %>% filter(Year == 2010) %>% select(ICD.Chapter,State,Crude.Rate) %>% arrange(ICD.Chapter,desc(Crude.Rate))
